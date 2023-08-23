@@ -1,0 +1,43 @@
+import PySimpleGUI as sg
+
+def main():
+    theme = "BrownBlue"
+    sg.theme(theme)
+    layout = [
+        [sg.Text("Text Editor", font=('Sans', 16)), sg.Button("Light Mode"), sg.Button("Dark Mode")],
+        [sg.Multiline(key='-EDITOR-', size=(80, 20), font=('Helvetica', 12))],
+        [sg.Button("Save"), sg.Button("Load"), sg.Button("Font Size"), sg.Button("Font Color"), sg.Button("Font"), sg.Button("Exit")]
+    ]
+
+    window = sg.Window("R250's Text Editor", layout)
+
+    while True:
+        sg.theme("DarkBlue")
+        event, values = window.read()
+        if event == sg.WINDOW_CLOSED or event == "Exit":
+            break
+        elif event == "Save":
+            save_path = sg.popup_get_file("Save text as:", save_as=True, default_extension=".txt")
+            if save_path:
+                with open(save_path, 'w') as f:
+                    f.write(values['-EDITOR-'])
+                sg.popup("File saved successfully!")
+        elif event == "Load":
+            load_path = sg.popup_get_file("Load text from:")
+            if load_path:
+                with open(load_path, 'r') as f:
+                    loaded_text = f.read()
+                window['-EDITOR-'].update(loaded_text)
+        elif event == "Font Size":
+            font_size = sg.popup_get_text("Enter font size:", title="Font Size", default_text="11")
+            if font_size and font_size.isdigit():
+                font_size = int(font_size)
+                window['-EDITOR-'](font=('Arial', font_size))
+        elif event == "Font Color":
+            font_color = sg.popup_get_text("Select font color:", title="Font Color")
+            if font_color:
+                window['-EDITOR-'](text_color=font_color)
+    window.close()
+
+if __name__ == "__main__":
+    main()
