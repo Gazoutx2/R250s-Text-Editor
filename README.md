@@ -1,9 +1,9 @@
--- This file is the "readme.txt" for R250's Text Editor Alpha 1.2.01 --
+## This file is the "readme.txt" for R250's Text Editor Alpha 1.2.01 ##
 
-## The "Font" and "Light/Dark Mode" features are not working yet ##
+-- The "Font" and "Light/Dark Mode" features are not working yet --
 
 This text editor has partly been made with OpenAI's ChatGPT (chat.openai.com).
-It is currently being maintained and updated by Gazoutx2 (www.youtube.com/@Gazoutx2)/R250_Tv
+It is currently being maintained and updated by Gazoutx2 (www.youtube.com/@Gazoutx2) and R250_Tv
 (www.youtube.com/@R250_Tv). This software is open source, feel free to modify it however you want under one 
 condition: do NOT sell any modified or original version of this project. 
 
